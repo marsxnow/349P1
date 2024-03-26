@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <style>
+        .logOutBtn {
+            display: "none";
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li onclick="hideSideBar()">
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"
+                        fill="white">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg></a>
+            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Quizes</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">Lil Rob's Website</a></li>
+            <li class="hide"><a href="index.html">Home</a></li>
+            <li class="hide"><a href="#">About</a></li>
+            <li class="hide"><a href="#">Quizes</a></li>
+            <li class="hide"><a href="#">Login</a></li>
+            <li class="menu-button" onclick="showSideBar()">
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"
+                        fill="white">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg></a>
+            </li>
+        </ul>
+    </nav>
+    <form>
+        <div class="login">
+
+            <fieldset>
+                <legend>Login</legend>
+                <label for="username">Username</label>
+                <br>
+                <input type="text" name="username" id="username" placeholder="enter Username" />
+                <br />
+                <label for="password">password</label>
+                <br>
+                <input type="text" name="password" id="" placeholder="enter password" />
+                <br />
+                <br />
+
+                <fieldset>
+                    <legend>Gender</legend>
+                    <input type="radio" name="gender" value="Male">Male</input>
+                    <br />
+                    <input type="radio" name="gender" value="Female">Female</input>
+                    <br />
+                    <input type="radio" name="gender" value="other">other</input>
+                    <br />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Skills</legend>
+                    <input type="checkbox" name="skills" value="go">go</input>
+                    <br />
+                    <input type="checkbox" name="skills" value="pascal">pascal</input>
+                    <br />
+                    <input type="checkbox" name="skills" value="ruby">ruby</input>
+                    <br />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Favorite fruit</legend>
+                    <select name="fruit" id="fruit">
+                        <option value="default" select>Select a fruit</option>
+                        <option value="apple">apple</option>
+                        <option value="pear">pear</option>
+                        <option value="idk">what is a fruit?</option>
+                    </select>
+                </fieldset>
+                <br>
+
+                <textarea id="bio" placeholder="Enter some text here..."></textarea>
+            </fieldset>
+        </div>
+    </form>
+    <div style="display: none;" class="profilePage">
+        <h1 id="welcomeMessage">Welcome</h1>
+        <br>
+        <p class="bio"></p>
+        <br>
+        <ul id="skillList">skills</ul>
+        <br>
+        <p id="Gender"></p>
+        <br>
+        <p id="fruit" class="fruit"></p>
+        <br>
+    </div>
+    <button type="submit" style="display: flex;" class="logInBtn" onclick=logIn()>Log In</button>
+    <button style="display: none;" class="logOutBtn" onclick=logOut()>Log Out</button>
+
+
+    <script src="login.js"></script>
+</body>
+
+</html>
