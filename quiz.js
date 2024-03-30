@@ -15,7 +15,7 @@ var quizData;
 
 // Load question data from API (called only once)
 async function loadQuestion() {
-  const APIUrl = `https://opentdb.com/api.php?amount=${totalQuestion}&difficulty=easy`;
+  const APIUrl = `https://opentdb.com/api.php?amount=${totalQuestion}&difficulty=easy&type=multiple`;
   const result = await fetch(`${APIUrl}`);
   const data = await result.json();
   quizData = data.results;
@@ -98,10 +98,6 @@ function checkCount() {
 
   // Check if all questions have been answered
   if (currentQuestionIndex >= totalQuestion) {
-    setTimeout(function () {
-      console.log(""); // Optional: Delay for visual effect (5 seconds)
-    }, 5000);
-
     _result.innerHTML += `<p>Your score is ${correctScore}.</p>`; // Display final score
     _playAgainBtn.style.display = "block"; // Show "Play Again" button
   } else {
@@ -121,6 +117,7 @@ function restartQuiz() {
   _checkBtn.style.display = "block";
   _checkBtn.disabled = false;
   _result.innerHTML = "";
+  correctAnswers = [];
   setCount();
   loadQuestion();
 }
