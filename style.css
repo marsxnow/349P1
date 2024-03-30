@@ -101,7 +101,6 @@ nav li:first-child {
 
 .about-container {
     color: #ffffff;
-
     background-color: #f4a261;
     box-shadow: 0 0 10px rgba(231, 111, 81, 0.1);
     margin: 20px;
@@ -118,12 +117,12 @@ nav li:first-child {
 
 .team-container {
     display: flex;
-    justify-content: start-flex;
+    justify-content: center;
 
     color: #ffffff;
-    text-align: center;
-    font-size: 30px;
-
+    text-align: start;
+    font-size: 25px;
+    flex-wrap: wrap;
     background-color: #e76f51;
     box-shadow: 0 0 10px rgba(231, 111, 81, 0.1);
     margin: 20px;
@@ -139,13 +138,15 @@ nav li:first-child {
 }
 
 .member-info {
-    display: flex;
-    flex-direction: column;
+    display: center;
+    flex-direction: row;
+    justify-content: center;
     padding: 5px;
 }
 
 .image-text-container-j {
-    float: right; /* Add spacing between image and text */
+    float: none; /* Add spacing between image and text */
     margin-bottom: 15px;
     padding: 5px;
+    justify-content: center;
 }
