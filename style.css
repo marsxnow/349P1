@@ -30,6 +30,10 @@ nav ul {
     align-items: center;
 }
 
+ul {
+    list-style-type: none;
+}
+
 nav ul li {
     height: 50px;
 }
@@ -96,15 +100,8 @@ nav li:first-child {
 }
 
 .about-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     color: #ffffff;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 700;
+
     background-color: #f4a261;
     box-shadow: 0 0 10px rgba(231, 111, 81, 0.1);
     margin: 20px;
@@ -113,25 +110,42 @@ nav li:first-child {
     backdrop-filter: blur(15px);
     z-index: 1;
     overflow: hidden;
-
     box-shadow:
         0 -3px 3px rgb(244 162 97 / 30%),
         0 0 0 2px rgb(233 196 106),
         0.3em 0.3em 1em rgb(231 111 81 / 60%);
 }
 
-.about-container::before {
-    content: "";
-    height: 200px;
-    width: 30%;
-    position: absolute;
-    top: -50px;
-    left: 20px;
-    transform: rotate(10deg);
-    /* margin-left: 15px; */
+.team-container {
+    display: flex;
+    justify-content: start-flex;
+
     color: #ffffff;
+    text-align: center;
+    font-size: 30px;
+
+    background-color: #e76f51;
+    box-shadow: 0 0 10px rgba(231, 111, 81, 0.1);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    z-index: 1;
+    overflow: hidden;
+    box-shadow:
+        0 -3px 3px #2a9d8f,
+        0 0 0 2px #2a9d8f,
+        0.3em 0.3em 1em rgb(231 111 81 / 60%);
 }
 
-.about-container h1 {
-    color: #ffffff;
+.member-info {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.image-text-container-j {
+    float: right; /* Add spacing between image and text */
+    margin-bottom: 15px;
+    padding: 5px;
 }
