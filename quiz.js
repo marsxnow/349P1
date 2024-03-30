@@ -6,20 +6,24 @@ const _result = document.getElementById("result");
 const _correctScore = document.getElementById("correct-score");
 const _totalQuestion = document.getElementById("total-question");
 
-let correctAnswer = "",
-  correctScore = (askedCount = 0),
-  totalQuestion = 10;
+var correctAnswers = [],
+  correctScore = 0,
+  totalQuestion = 10,
+  currentQuestionIndex = 0;
 
-// load question from API
+var quizData;
+
+// Load question data from API (called only once)
 async function loadQuestion() {
-  const APIUrl = "https://opentdb.com/api.php?amount=1";
+  const APIUrl = `https://opentdb.com/api.php?amount=${totalQuestion}&difficulty=easy`;
   const result = await fetch(`${APIUrl}`);
   const data = await result.json();
-  _result.innerHTML = "";
-  showQuestion(data.results[0]);
+  quizData = data.results;
+  console.log(quizData);
+  showQuestion();
 }
 
-// event listeners
+// Event listeners for buttons
 function eventListeners() {
   _checkBtn.addEventListener("click", checkAnswer);
   _playAgainBtn.addEventListener("click", restartQuiz);
@@ -32,33 +36,38 @@ document.addEventListener("DOMContentLoaded", function () {
   _correctScore.textContent = correctScore;
 });
 
-// display question and options
-function showQuestion(data) {
+// Display question and options
+function showQuestion() {
   _checkBtn.disabled = false;
-  correctAnswer = data.correct_answer;
+  _playAgainBtn.style.display = "none";
+  if (currentQuestionIndex >= totalQuestion) {
+    restartQuiz();
+  }
+  const data = quizData[currentQuestionIndex];
+  correctAnswers.push(data.correct_answer);
   let incorrectAnswer = data.incorrect_answers;
   let optionsList = incorrectAnswer;
   optionsList.splice(
-    Math.floor(Math.random() * (incorrectAnswer.length + 1)),
-    0,
-    correctAnswer,
+    Math.floor(Math.random() * incorrectAnswer.length), // Random position within incorrect answers
+    1, // Remove 1 element (guarantees at least one incorrect answer is removed)
+    data.correct_answer,
   );
-  // console.log(correctAnswer);
 
   _question.innerHTML = `${data.question} <br> <span class = "category"> ${data.category} </span>`;
   _options.innerHTML = `
         ${optionsList
           .map(
             (option, index) => `
-            <li> ${index + 1}. <span>${option}</span> </li>
-        `,
+              <li> ${index + 1}. <span>${option}</span> </li>
+            `,
           )
           .join("")}
-    `;
+      `;
+  console.log(data.correct_answer);
   selectOption();
 }
 
-// options selection
+// Handle option selection
 function selectOption() {
   _options.querySelectorAll("li").forEach(function (option) {
     option.addEventListener("click", function () {
@@ -71,58 +80,47 @@ function selectOption() {
   });
 }
 
-// answer checking
+// Check answer and update score/result
 function checkAnswer() {
   _checkBtn.disabled = true;
-  if (_options.querySelector(".selected")) {
-    let selectedAnswer = _options.querySelector(".selected span").textContent;
-    if (selectedAnswer == HTMLDecode(correctAnswer)) {
-      correctScore++;
-      _result.innerHTML = `<p><i class = "fas fa-check"></i>Correct Answer!</p>`;
-    } else {
-      _result.innerHTML = `<p><i class = "fas fa-times"></i>Incorrect Answer!</p> <small><b>Correct Answer: </b>${correctAnswer}</small>`;
-    }
-    checkCount();
+  let selectedAnswer = _options.querySelector(".selected span").textContent;
+  if (selectedAnswer == correctAnswers[currentQuestionIndex]) {
+    correctScore++;
+    _result.innerHTML = `<p><i class = "fas fa-check"></i>Correct Answer!</p>`;
   } else {
-    _result.innerHTML = `<p><i class = "fas fa-question"></i>Please select an option!</p>`;
-    _checkBtn.disabled = false;
+    _result.innerHTML = `<p><i class = "fas fa-time"></i>Incorrect Answer!</p>`;
   }
-}
-
-// to convert html entities into normal text of correct answer if there is any
-function HTMLDecode(textString) {
-  let doc = new DOMParser().parseFromString(textString, "text/html");
-  return doc.documentElement.textContent;
+  checkCount();
 }
 
 function checkCount() {
-  askedCount++;
-  setCount();
-  if (askedCount == totalQuestion) {
+  currentQuestionIndex++; // Move to the next question index
+
+  // Check if all questions have been answered
+  if (currentQuestionIndex >= totalQuestion) {
     setTimeout(function () {
-      console.log("");
+      console.log(""); // Optional: Delay for visual effect (5 seconds)
     }, 5000);
 
-    _result.innerHTML += `<p>Your score is ${correctScore}.</p>`;
-    _playAgainBtn.style.display = "block";
-    _checkBtn.style.display = "none";
+    _result.innerHTML += `<p>Your score is ${correctScore}.</p>`; // Display final score
+    _playAgainBtn.style.display = "block"; // Show "Play Again" button
   } else {
-    setTimeout(function () {
-      loadQuestion();
-    }, 300);
+    setCount();
+    showQuestion(); // Display the next question
   }
 }
-
 function setCount() {
-  _totalQuestion.textContent = totalQuestion;
-  _correctScore.textContent = correctScore;
+  _correctScore.textContent = correctScore; // Update displayed correct score
+  _totalQuestion.textContent = totalQuestion; // Update displayed total question count
 }
 
 function restartQuiz() {
-  correctScore = askedCount = 0;
+  correctScore = 0;
+  currentQuestionIndex = 0;
   _playAgainBtn.style.display = "none";
   _checkBtn.style.display = "block";
   _checkBtn.disabled = false;
+  _result.innerHTML = "";
   setCount();
   loadQuestion();
 }
