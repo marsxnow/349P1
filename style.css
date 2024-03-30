@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 @font-face {
     font-family: "Bjork";
     src: url("Bjork.ttf.woff");
@@ -9,16 +10,16 @@
 
 body {
     min-height: 100vh;
-    background-color: whitesmoke;
+    background-color: #264653;
     font-family: "Bjork";
     font-size: 30px;
 }
 
 nav {
-    background-color: #000000;
+    background-color: #2a9d8f;
     box-shadow:
         3px 3px,
-        5px rgba(0, 0, 0, 0.1);
+        5px rgba(233, 196, 106, 0.1);
 }
 
 nav ul {
@@ -43,7 +44,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: grey;
+    background-color: #f4a261;
 }
 
 nav li:first-child {
@@ -57,7 +58,7 @@ nav li:first-child {
     height: 100hv;
     width: 250px;
     z-index: 999;
-    background-color: black;
+    background-color: #2a9d8f;
     box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
     display: none;
     flex-direction: column;
@@ -74,20 +75,63 @@ nav li:first-child {
     width: 100%;
 }
 
-.menu-button{
+.menu-button {
     display: none;
 }
 
 @media (max-width: 600px) {
-   .hide {
-       display: none;
-   }
-   .menu-button{
-    display: block;
-   }
+    .hide {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
 }
-@media (max-width: 600px){
-    .sidebar{
+
+@media (max-width: 600px) {
+    .sidebar {
         width: 100%;
     }
+}
+
+.about-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    background-color: #2a9d8f;
+    box-shadow: 0 0 10px rgba(231, 111, 81, 0.1);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    z-index: 1;
+    overflow: hidden;
+
+    box-shadow:
+        0 -3px 3px rgb(244 162 97 / 30%),
+        0 0 0 2px rgb(233 196 106),
+        0.3em 0.3em 1em rgb(231 111 81 / 60%);
+}
+
+.about-container::before {
+    content: "";
+    height: 200px;
+    width: 30%;
+    position: absolute;
+    top: -50px;
+    left: 20px;
+    transform: rotate(10deg);
+    /* margin-left: 15px; */
+    color: #ffffff;
+}
+
+.about-container h1 {
+    color: #ffffff;
 }
