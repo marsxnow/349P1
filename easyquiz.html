@@ -1,9 +1,10 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <title>Quizzical</title>
-        <link rel="stylesheet" href="style.css" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title></title>
+        <link href="css/style.css" rel="stylesheet" />
     </head>
     <body>
         <nav>
@@ -25,14 +26,14 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="#">Quizes</a></li>
-                <!-- <li><a href="login.html">Login</a></li> -->
+                <li><a href="login.html">Login</a></li>
             </ul>
             <ul>
-                <li><a href="#">Quizzical</a></li>
+                <li><a href="#">Lil Rob's Website</a></li>
                 <li class="hide"><a href="index.html">Home</a></li>
                 <li class="hide"><a href="about.html">About</a></li>
                 <li class="hide"><a href="#">Quizes</a></li>
-                <!-- <li class="hide"><a href="login.html">Login</a></li> -->
+                <li class="hide"><a href="login.html">Login</a></li>
                 <li class="menu-button" onclick="showSideBar()">
                     <a href="#"
                         ><svg
@@ -50,15 +51,32 @@
             </ul>
         </nav>
         <script src="sidebar.js"></script>
-        <h1>Welcome to the quiz website</h1>
-        <div>
-            <h2>Click below to choose the difficulty</h2>
-            <a href="easyquiz.html">
-                <button>Easy</button>
-            </a>
-            <a href="hardquiz.html">
-                <button>HARD</button>
-            </a>
+        <!-- all stuff for the header ^ -->
+        <!-- quiz.html starts here -->
+        <div class="wrapper">
+            <div class="quiz-container">
+                <div class="quiz-head">
+                    <h1 class="quiz-title">QUIZ TIME</h1>
+                    <div class="quiz-score">
+                        <span id="correct-score"></span>/<span
+                            id="total-question"
+                        ></span>
+                    </div>
+                </div>
+                <div class="quiz-body">
+                    <h1 class="quiz-question" id="question"></h1>
+                    <ul class="quiz-options"></ul>
+                    <div id="result"></div>
+                </div>
+                <div class="quiz-foot">
+                    <button type="button" id="check-answer">
+                        Check Answer
+                    </button>
+                    <button type="button" id="play-again">Play Again</button>
+                </div>
+            </div>
         </div>
+
+        <script src="easyquiz.js"></script>
     </body>
 </html>
