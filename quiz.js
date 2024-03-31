@@ -5,6 +5,11 @@ const _playAgainBtn = document.getElementById("play-again");
 const _result = document.getElementById("result");
 const _correctScore = document.getElementById("correct-score");
 const _totalQuestion = document.getElementById("total-question");
+const difficultyContainer = document.getElementById("difficulty-container");
+const quizContainer = document.getElementById("quiz-container");
+const difficultyEasyBtn = document.getElementById("difficulty-easy");
+const difficultyMediumBtn = document.getElementById("difficulty-medium");
+const difficultyHardBtn = document.getElementById("difficulty-hard");
 
 var correctAnswers = [],
   correctScore = 0,
@@ -13,9 +18,19 @@ var correctAnswers = [],
 
 var quizData;
 
+difficultyEasyBtn.addEventListener("click", () => startQuiz("easy"));
+difficultyMediumBtn.addEventListener("click", () => startQuiz("medium"));
+difficultyHardBtn.addEventListener("click", () => startQuiz("hard"));
+
+function startQuiz(difficulty) {
+  quizContainer.style.display = "block";
+  difficultyContainer.style.display = "none";
+  loadQuestion(difficulty);
+}
+
 // Load question data from API (called only once)
-async function loadQuestion() {
-  const APIUrl = `https://opentdb.com/api.php?amount=${totalQuestion}&difficulty=easy&type=multiple`;
+async function loadQuestion(difficulty = "easy") {
+  const APIUrl = `https://opentdb.com/api.php?amount=${totalQuestion}&difficulty=${difficulty}&type=multiple`;
   const result = await fetch(`${APIUrl}`);
   const data = await result.json();
   quizData = data.results;
@@ -30,7 +45,6 @@ function eventListeners() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  loadQuestion();
   eventListeners();
   _totalQuestion.textContent = totalQuestion;
   _correctScore.textContent = correctScore;
@@ -117,7 +131,8 @@ function restartQuiz() {
   _checkBtn.style.display = "block";
   _checkBtn.disabled = false;
   _result.innerHTML = "";
+  quizContainer.style.display = "none";
+  difficultyContainer.style.display = "block";
   correctAnswers = [];
   setCount();
-  loadQuestion();
 }
