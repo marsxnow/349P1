@@ -28,7 +28,8 @@ from the Open trivia database. Users can select from three categories of difficu
 - CSS
 - JavaScript
 - Open Trivia Database API
-  We did not use boostrap for this project.
+
+We did not use boostrap for this project.
 
 ## How to run the application
 
