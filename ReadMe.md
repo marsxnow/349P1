@@ -1,6 +1,6 @@
 # Quizzical
 
-![Demo img](screenshots/06effa6d32c1a44a1881f0bf425efa9.png)
+![Demo img1](screenshots/06effa6d32c1a44a41881f0bf425efa9.png)
 
 ## Team Members
 
@@ -22,4 +22,4 @@ Running the application is simple. First, clone the repository to your local mac
 
 Select one of the three difficuly buttons and take the quiz. The quiz will consist of 10 questions. After you have answered all the questions, you will be shown your score. You can then choose to play again or select a different difficulty.
 
-![Demo img](screenshots/7996536f9e455dcb416cae38d14787c5.png)
+![Demo img2](screenshots/7996536f9e455dcb416cae38d14787c5.png)
