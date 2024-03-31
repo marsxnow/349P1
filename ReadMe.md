@@ -20,7 +20,7 @@
 ## Description
 
 Quizzical is a web application that allows users to play quizzes that are pulled
-from the Open trivia database. Users can select from three categories of difficulty. The questions are multiple choice and the user can see their score at the end of the quiz. The question categories include music, film, gaming, computer knowledge, and an many others.
+from the Open trivia database. Users can select from three categories of difficulty. The questions are multiple choice and the user can see their score at the end of the quiz. The question categories include music, film, gaming, computer knowledge, and many others.
 
 ## Tech Stack
 
