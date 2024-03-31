@@ -10,6 +10,7 @@ const quizContainer = document.getElementById("quiz-container");
 const difficultyEasyBtn = document.getElementById("difficulty-easy");
 const difficultyMediumBtn = document.getElementById("difficulty-medium");
 const difficultyHardBtn = document.getElementById("difficulty-hard");
+const indexHeader = document.getElementById("index-header");
 
 var correctAnswers = [],
   correctScore = 0,
@@ -54,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function showQuestion() {
   _checkBtn.disabled = false;
   _playAgainBtn.style.display = "none";
+  indexHeader.style.display = "none";
   if (currentQuestionIndex >= totalQuestion) {
     restartQuiz();
   }
@@ -133,6 +135,7 @@ function restartQuiz() {
   _result.innerHTML = "";
   quizContainer.style.display = "none";
   difficultyContainer.style.display = "flex";
+  indexHeader.style.display = "block";
   correctAnswers = [];
   setCount();
 }
