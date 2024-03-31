@@ -370,6 +370,91 @@ nav li:first-child {
     align-items: flex-start;
 }
 
+.quiz-options {
+    list-style-type: none;
+    margin: 1rem 0;
+}
+
+.quiz-options li {
+    align-items: center;
+    background-color: #e9c46a;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    cursor: pointer;
+    display: flex;
+    font-family: "Workbench", sans-serif;
+    font-size: 16px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.quiz-options li:after {
+    background-color: #111;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 48px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform 0.2s ease-out;
+    z-index: -1;
+}
+
+.quiz-options li:hover:after {
+    transform: translate(0, 0);
+}
+
+.quiz-options li:active {
+    background-color: #ffdeda;
+    outline: 0;
+}
+
+.quiz-options li:hover {
+    outline: 0;
+}
+
+.selected {
+    align-items: center !important;
+    background-color: #e76f51 !important;
+    border: 2px solid #111 !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    color: #111 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    font-family: "Workbench", sans-serif !important;
+    font-size: 16px !important;
+    height: 48px !important;
+    justify-content: center !important;
+    line-height: 24px !important;
+    max-width: 100% !important;
+    padding: 0 25px !important;
+    position: relative !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    touch-action: manipulation !important;
+    margin-left: 15px !important;
+    margin-top: 15px !important;
+}
+
 #check-answer {
     align-items: center;
     background-color: #2a9d8f;
