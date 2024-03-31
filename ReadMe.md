@@ -6,13 +6,27 @@
 
 - [Jacob Corletto]
   - email: jacob.corletto@csu.fullerton.edu
+  - github: jacob-corletto
+  - discord: jcorletto
 - [Raxel Ortiz]
   - email: raxelortiz7@csu.fullerton.edu
+  - github: marsxnow
+  - discord: clickxnow
 - [Esteban Zapata]
   - email: epzapata@csu.fullerton.edu
+  - github: esteban-zapata
+  - discord: estebomb.
 
 Quizzical is a web application that allows users to play quizzes that are pulled
 from the Open trivia database. Users can select from three categories of difficulty. The questions are multiple choice and the user can see their score at the end of the quiz. The question categories include music, film, gaming, computer knowledge, and an many others.
+
+## Tech Stack
+
+- HTML
+- CSS
+- JavaScript
+- Open Trivia Database API
+  We did not use boostrap for this project.
 
 ## How to run the application
 
@@ -23,3 +37,7 @@ Running the application is simple. First, clone the repository to your local mac
 Select one of the three difficuly buttons and take the quiz. The quiz will consist of 10 questions. After you have answered all the questions, you will be shown your score. You can then choose to play again or select a different difficulty.
 
 ![Demo img2](screenshots/7996536f9e455dcb416cae38d14787c5.png)
+
+## Question & Comments
+
+Please let us know if you have any questions or comments. Please email one of the three team members listed above if the application does not work or if the **API is down**.
