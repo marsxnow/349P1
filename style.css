@@ -305,6 +305,13 @@ nav li:first-child {
     }
 }
 
+#quiz-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
 #difficulty-hard {
     align-items: center;
     background-color: #2a9d8f;
