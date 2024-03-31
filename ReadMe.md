@@ -1,8 +1,6 @@
 # Quizzical
 
-[![Build Status](https://travis-ci.org/Quizzical/Quizzical.svg?branch=master)](https://travis-ci.org/Quizzical/Quizzical)
-
-![(screenshots/06effa6d32c1a44a1881f0bf425efa9.png]
+![Demo img](screenshots/06effa6d32c1a44a1881f0bf425efa9.png
 
 ## Team Members
 
