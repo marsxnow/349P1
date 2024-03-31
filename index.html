@@ -4,6 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Quizzical</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Workbench&display=swap"
+            rel="stylesheet"
+        />
         <link href="style.css" rel="stylesheet" />
     </head>
     <body>
@@ -26,7 +32,9 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li>
-                    <a href="https://opentdb.com/api_config.php">Link to API</a>
+                    <a href="https://opentdb.com/api_config.php" target="_blank"
+                        >Link to API</a
+                    >
                 </li>
                 <!-- <li><a href="login.html">Login</a></li> -->
             </ul>
@@ -35,7 +43,9 @@
                 <li class="hide"><a href="index.html">Home</a></li>
                 <li class="hide"><a href="about.html">About</a></li>
                 <li class="hide">
-                    <a href="https://opentdb.com/api_config.php">Link to API</a>
+                    <a href="https://opentdb.com/api_config.php" target="_blank"
+                        >Link to API</a
+                    >
                 </li>
                 <!-- <li class="hide"><a href="login.html">Login</a></li> -->
                 <li class="menu-button" onclick="showSideBar()">
@@ -57,7 +67,7 @@
         <script src="sidebar.js"></script>
         <!-- all stuff for the header ^ -->
         <!-- quiz.html starts here -->
-        <div>
+        <div class="index-header">
             <h1>Welcome to QUIZZICAL</h1>
             <p>Select a difficulty to start</p>
         </div>

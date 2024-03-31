@@ -128,11 +128,11 @@ function restartQuiz() {
   correctScore = 0;
   currentQuestionIndex = 0;
   _playAgainBtn.style.display = "none";
-  _checkBtn.style.display = "block";
+  _checkBtn.style.display = "flex";
   _checkBtn.disabled = false;
   _result.innerHTML = "";
   quizContainer.style.display = "none";
-  difficultyContainer.style.display = "block";
+  difficultyContainer.style.display = "flex";
   correctAnswers = [];
   setCount();
 }
