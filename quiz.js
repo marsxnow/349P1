@@ -79,7 +79,7 @@ function showQuestion() {
           )
           .join("")}
       `;
-  console.log(data.correct_answer);
+  console.log(decodeHTMLEntities(data.correct_answer));
   selectOption();
 }
 
@@ -100,7 +100,9 @@ function selectOption() {
 function checkAnswer() {
   _checkBtn.disabled = true;
   let selectedAnswer = _options.querySelector(".selected span").textContent;
-  if (selectedAnswer == correctAnswers[currentQuestionIndex]) {
+  if (
+    selectedAnswer == decodeHTMLEntities(correctAnswers[currentQuestionIndex])
+  ) {
     correctScore++;
     _result.innerHTML = `<p><i class = "fas fa-check"></i>Correct Answer!</p>`;
   } else {
@@ -138,4 +140,10 @@ function restartQuiz() {
   indexHeader.style.display = "block";
   correctAnswers = [];
   setCount();
+}
+
+function decodeHTMLEntities(html) {
+  var txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
 }
