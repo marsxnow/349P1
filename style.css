@@ -174,7 +174,13 @@ nav li:first-child {
         0 0 0 2px #2a9d8f,
         0.3em 0.3em 1em rgb(231 111 81 / 60%);
 }
-
+@media (max-width: 600px) {
+    #index-header {
+        padding: 10px;
+        margin: 10px;
+        font-size: 1 em; /* Adjust as needed */
+    }
+}
 .wrapper {
     display: flex;
     justify-content: center;
